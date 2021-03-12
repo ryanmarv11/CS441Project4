@@ -8,13 +8,15 @@ import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
 
+import org.w3c.dom.Text;
+
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
     private TableLayout table;
     private ArrayList<TableRow> tableRowList;
-    private ArrayList<String> setNames, setDates;
+    public ArrayList<String> setNames, setDates;
     private int currentState;
 
     @Override
@@ -24,8 +26,8 @@ public class MainActivity extends AppCompatActivity {
         tableRowList = new ArrayList();
         table = (TableLayout) findViewById(R.id.table_layout);
         currentState = 0;
-        this.setNames = new ArrayList<>();
-        this.setDates = new ArrayList<>();
+        this.setNames = new ArrayList<String>();
+        this.setDates = new ArrayList<String>();
         this.setNames.add("Kaldheim");
         this.setDates.add("2021");
         this.setNames.add("Zendikar Rising");
@@ -166,127 +168,87 @@ public class MainActivity extends AppCompatActivity {
         this.setDates.add("2003");
         this.setNames.add("Modern Horizons");
         this.setDates.add("2019");
+
     }
 
-    public void showStandardSets(View view) {
+    public void showStandardSets(View view)
+    {
         TableRow tableRow;
-        tableRow = new TableRow(this);
-        TextView setName = new TextView(this);
-        TextView setDate = new TextView(this);
-        if(this.currentState == 0)
+        TextView setName, setDate;
+        if (this.currentState == 0)
         {
-            this.currentState = 1;
-        }
-        else if(this.currentState == 1)
-        {
-            return;
+            this.currentState++;
         }
         else
         {
             clearTableRowList();
         }
-
-        for(int i = 0; i < 6; i++)
+        for (int i = 0; i < 6; i++)
         {
+            tableRow = new TableRow(this);
+            setName = new TextView(this);
             setName.setText(this.setNames.get(i));
+            setDate = new TextView(this);
             setDate.setText(this.setDates.get(i));
             tableRow.addView(setName, 0);
             tableRow.addView(setDate, 1);
-            table.addView(tableRow);
-            tableRowList.add(tableRow);
+            this.table.addView(tableRow);
+            this.tableRowList.add(tableRow);
         }
-        this.currentState = 1;
-    }
 
-    public void showPioneerSets(View view) {
-        TableRow tableRow;
-        tableRow = new TableRow(this);
-        TextView setName = new TextView(this);
-        TextView setDate = new TextView(this);
-        if(this.currentState == 0)
-        {
-            this.currentState = 2;
-        }
-        else if(this.currentState == 1)
-        {
-            for(int i = 6; i < 34; i++)
+    }
+    public void showPioneerSets (View view)
+    {
+            TableRow tableRow;
+            TextView setName, setDate;
+            if (this.currentState == 0)
             {
+                this.currentState++;
+            }
+            else
+            {
+                clearTableRowList();
+            }
+
+            for (int i = 0; i < 34; i++)
+            {
+                tableRow = new TableRow(this);
+                setName = new TextView(this);
                 setName.setText(this.setNames.get(i));
+                setDate = new TextView(this);
                 setDate.setText(this.setDates.get(i));
                 tableRow.addView(setName, 0);
                 tableRow.addView(setDate, 1);
-                table.addView(tableRow);
-                tableRowList.add(tableRow);
+                this.table.addView(tableRow);
+                this.tableRowList.add(tableRow);
             }
         }
-        else if(this.currentState == 2)
-        {
-            return;
-        }
-        else if(this.currentState == 3)
-        {
-            clearTableRowList();
-            for(int i = 0; i < 34; i++)
-            {
-                setName.setText(this.setNames.get(i));
-                setDate.setText(this.setDates.get(i));
-                tableRow.addView(setName, 0);
-                tableRow.addView(setDate, 1);
-                table.addView(tableRow);
-                tableRowList.add(tableRow);
-            }
-        }
-    }
-
     public void showModernSets(View view)
     {
         TableRow tableRow;
-        tableRow = new TableRow(this);
-        TextView setName = new TextView(this);
-        TextView setDate = new TextView(this);
-        if(this.currentState == 0)
+        TextView setName, setDate;
+        if (this.currentState == 0)
         {
-            for(int i = 0; i < this.setNames.size() - 1; i++)
-            {
-                setName.setText(this.setNames.get(i));
-                setDate.setText(this.setDates.get(i));
-                tableRow.addView(setName, 0);
-                tableRow.addView(setDate, 1);
-                table.addView(tableRow);
-                tableRowList.add(tableRow);
-            }
+            this.currentState++;
         }
-        else if(this.currentState == 1)
+        else
         {
-            for(int i = 6; i < this.setNames.size() - 1; i++)
-            {
-                setName.setText(this.setNames.get(i));
-                setDate.setText(this.setDates.get(i));
-                tableRow.addView(setName, 0);
-                tableRow.addView(setDate, 1);
-                table.addView(tableRow);
-                tableRowList.add(tableRow);
-            }
+            clearTableRowList();
         }
-        else if(this.currentState == 2)
+        for (int i = 0; i < this.setNames.size()-1; i++)
         {
-            for(int i = 34; i < this.setNames.size() - 1; i++)
-            {
-                setName.setText(this.setNames.get(i));
-                setDate.setText(this.setDates.get(i));
-                tableRow.addView(setName, 0);
-                tableRow.addView(setDate, 1);
-                table.addView(tableRow);
-                tableRowList.add(tableRow);
-            }
+            tableRow = new TableRow(this);
+            setName = new TextView(this);
+            setName.setText(this.setNames.get(i));
+            setDate = new TextView(this);
+            setDate.setText(this.setDates.get(i));
+            tableRow.addView(setName, 0);
+            tableRow.addView(setDate, 1);
+            this.table.addView(tableRow);
+            this.tableRowList.add(tableRow);
         }
-        else if(this.currentState == 3)
-        {
-            return;
-        }
-        this.currentState = 3;
-    }
 
+    }
     public void clearTableRowList()
     {
         TableRow toRemove;
@@ -296,6 +258,5 @@ public class MainActivity extends AppCompatActivity {
             table.removeView(toRemove);
         }
     }
-
 
 }

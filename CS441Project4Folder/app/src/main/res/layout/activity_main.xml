@@ -22,42 +22,43 @@
         android:id="@+id/standard_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="bottom|left"
         android:onClick="showStandardSets"
         android:text="Standard"
-        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintHorizontal_bias="0.053"
         app:layout_constraintLeft_toLeftOf="parent"
-        android:layout_gravity="bottom|left"
-        >
-        </Button>
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.976"></Button>
+
     <Button
         android:id="@+id/pioneer_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:onClick="showPioneerSets"
-        android:text="Standard"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_width="136dp"
+        android:layout_height="45dp"
         android:layout_gravity="bottom|center_horizontal"
-        >
-    </Button>
+        android:onClick="showPioneerSets"
+        android:text="Pioneer"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.976"></Button>
+
     <Button
         android:id="@+id/modern_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:onClick="showModernSets"
-        android:text="Standard"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_width="112dp"
+        android:layout_height="46dp"
         android:layout_gravity="bottom|right"
-        >
-    </Button>
-
+        android:onClick="showModernSets"
+        android:text="Modern"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.949"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.976"></Button>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
