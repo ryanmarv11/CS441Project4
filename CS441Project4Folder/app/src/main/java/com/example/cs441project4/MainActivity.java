@@ -13,7 +13,7 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity {
 
     private TableLayout table;
-    private ArrayList<TableRow> tableRowList, standardSetList, pioneerSetList, modernSetList; //initialized lists
+    private ArrayList<TableRow> tableRowList;
     private ArrayList<String> setNames, setDates;
     private int currentState;
 
@@ -195,6 +195,7 @@ public class MainActivity extends AppCompatActivity {
             table.addView(tableRow);
             tableRowList.add(tableRow);
         }
+        this.currentState = 1;
     }
 
     public void showPioneerSets(View view) {
