@@ -206,7 +206,7 @@ public class MainActivity extends AppCompatActivity {
         {
             this.currentState = 2;
         }
-        if(this.currentState == 1)
+        else if(this.currentState == 1)
         {
             for(int i = 6; i < 34; i++)
             {
@@ -218,6 +218,72 @@ public class MainActivity extends AppCompatActivity {
                 tableRowList.add(tableRow);
             }
         }
+        else if(this.currentState == 2)
+        {
+            return;
+        }
+        else if(this.currentState == 3)
+        {
+            clearTableRowList();
+            for(int i = 0; i < 34; i++)
+            {
+                setName.setText(this.setNames.get(i));
+                setDate.setText(this.setDates.get(i));
+                tableRow.addView(setName, 0);
+                tableRow.addView(setDate, 1);
+                table.addView(tableRow);
+                tableRowList.add(tableRow);
+            }
+        }
+    }
+
+    public void showModernSets(View view)
+    {
+        TableRow tableRow;
+        tableRow = new TableRow(this);
+        TextView setName = new TextView(this);
+        TextView setDate = new TextView(this);
+        if(this.currentState == 0)
+        {
+            for(int i = 0; i < this.setNames.size() - 1; i++)
+            {
+                setName.setText(this.setNames.get(i));
+                setDate.setText(this.setDates.get(i));
+                tableRow.addView(setName, 0);
+                tableRow.addView(setDate, 1);
+                table.addView(tableRow);
+                tableRowList.add(tableRow);
+            }
+        }
+        else if(this.currentState == 1)
+        {
+            for(int i = 6; i < this.setNames.size() - 1; i++)
+            {
+                setName.setText(this.setNames.get(i));
+                setDate.setText(this.setDates.get(i));
+                tableRow.addView(setName, 0);
+                tableRow.addView(setDate, 1);
+                table.addView(tableRow);
+                tableRowList.add(tableRow);
+            }
+        }
+        else if(this.currentState == 2)
+        {
+            for(int i = 34; i < this.setNames.size() - 1; i++)
+            {
+                setName.setText(this.setNames.get(i));
+                setDate.setText(this.setDates.get(i));
+                tableRow.addView(setName, 0);
+                tableRow.addView(setDate, 1);
+                table.addView(tableRow);
+                tableRowList.add(tableRow);
+            }
+        }
+        else if(this.currentState == 3)
+        {
+            return;
+        }
+        this.currentState = 3;
     }
 
     public void clearTableRowList()
